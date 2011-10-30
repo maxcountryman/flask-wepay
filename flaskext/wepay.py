@@ -81,14 +81,17 @@ class WePay(object):
         return self.wepay.call(uri, params, token)
     
     def get_authorization_urls(self, redirect_uri, options={}, scope='manage_accounts,collect_payments,view_balance,view_user,refund_payments'):
+        client_id = self.consumer_key
         return self.wepay.get_authorization_url(redirect_uri, 
-                                                client_id=self.consumer_key, 
+                                                client_id, 
                                                 options={}, 
                                                 scope='manage_accounts,collect_payments,view_balance,view_user,refund_payments')
     
     def get_token(self, redirect_uri, code):
+        client_id     = self.consumer_key
+        client_secret = self.consumer_secret
         return self.wepay.get_token(self, 
                                     redirect_uri, 
-                                    client_id=self.consumer_key, 
-                                    client_secret=self.consumer_secret, 
+                                    client_id, 
+                                    client_secret, 
                                     code=None)
