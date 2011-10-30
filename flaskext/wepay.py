@@ -90,8 +90,9 @@ class WePay(object):
     def get_token(self, redirect_uri, code):
         client_id     = self.consumer_key
         client_secret = self.consumer_secret
+        code = code
         return self.wepay.get_token(self, 
                                     redirect_uri, 
                                     client_id, 
                                     client_secret, 
-                                    code=None)
+                                    code)
