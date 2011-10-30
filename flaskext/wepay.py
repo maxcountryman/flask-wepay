@@ -70,8 +70,8 @@ class WePayAPI(object):
 
 class WePay(object):
     def __init__(self, app):
-        self.consumer_id     = app.config.get('WEPAY_CLIENT_ID')
-        self.consumer_secret = app.config.get('WEPAY_CLIENT_SECRET')
+        self.consumer_key    = app.config.get('WEPAY_CONSUMER_KEY')
+        self.consumer_secret = app.config.get('WEPAY_CONSUMER_SECRET')
         self.production      = app.config.get('WEPAY_IN_PRODUCTION', False)
         self.access_token    = app.config.get('WEPAY_ACCESS_TOKEN')
         self.wepay           = WePayAPI(production=self.production, 
@@ -82,13 +82,13 @@ class WePay(object):
     
     def get_authorization_urls(self, redirect_uri, options={}, scope='manage_accounts,collect_payments,view_balance,view_user,refund_payments'):
         return self.wepay.get_authorization_url(redirect_uri, 
-                                                client_id=self.consumer_id, 
+                                                client_id=self.consumer_key, 
                                                 options={}, 
                                                 scope='manage_accounts,collect_payments,view_balance,view_user,refund_payments')
     
     def get_token(self, redirect_uri, code):
         return self.wepay.get_token(self, 
                                     redirect_uri, 
-                                    client_id=self.consumer_id, 
+                                    client_id=self.consumer_key, 
                                     client_secret=self.consumer_secret, 
                                     code=None)
