@@ -1,10 +1,10 @@
-# Flask-Wepay
+# Flask-WePay
 
 This extension provides a simple wrapper for WePay's Python API.
 
 ## Installation
 
-`$pip install flask-wepay`
+`$ pip install flask-wepay`
 
 ## Usage
 
