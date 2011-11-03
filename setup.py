@@ -9,7 +9,7 @@ from setuptools import setup
 
 setup(
     name='Flask-WePay',
-    version='0.0.5',
+    version='0.0.6',
     url='https://github.com/maxcountryman/flask-wepay',
     license='BSD',
     author='Max Countryman',

@@ -29,6 +29,6 @@ methods are available:
 
     wepay.call(uri, params, token)
     
-    wepay.get_authorization_urls(redirect_uri, options, scope)
+    wepay.get_authorization_urls(redirect_uri, options={}, scope='')
     
     wepay.get_token(redirect_uri, code)
