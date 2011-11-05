@@ -45,7 +45,7 @@ class WePayAPI(object):
             response = json.loads(e.read())
             raise WePayError(response['error'], response['error_description'])
 
-    def get_authorization_url(self, redirect_uri, client_id, options = {}, scope="manage_accounts,collect_payments,view_balance,view_user,refund_payments"):
+    def get_authorization_url(self, redirect_uri, client_id, options = {}, scope="manage_accounts,collect_payments,view_balance,view_user,refund_payments,send_money"):
         """Returns a URL to send the user to in order to get authorization.
         After getting authorization the user will return to redirect_uri.
         Optionally, scope can be set to limit permissions, and the options
@@ -90,7 +90,7 @@ class WePay(object):
         return self.wepay.get_authorization_url(redirect_uri,
                                                 client_id,
                                                 options={},
-                                                scope='manage_accounts,collect_payments,view_balance,view_user,refund_payments')
+                                                scope=scope)
 
     def get_token(self, redirect_uri, code):
         client_id     = self.consumer_key
